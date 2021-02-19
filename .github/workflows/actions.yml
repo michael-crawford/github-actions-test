@@ -10,6 +10,12 @@ jobs:
         run: |
           pwd
           ls -lAF
+      - name: Show Environment
+        run: |
+          echo "GITHUB_SHA = $GITHUB_SHA"
+          echo "GITHUB_REPOSITORY = $GITHUB_REPOSITORY"
+          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+          echo "${{ github.token }}"
       - name: Checkout
         uses: actions/checkout@v2
       - name: List Files After Checkout
