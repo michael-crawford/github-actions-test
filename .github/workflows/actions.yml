@@ -1,6 +1,7 @@
 name: Actions Workflow
 
 on:
+
   repository_dispatch:
     type: [build]
   #schedule:
@@ -25,6 +26,12 @@ jobs:
           echo "GITHUB_REPOSITORY = $GITHUB_REPOSITORY"
           echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
           echo "${{ github.token }}"
+      - name: Show Client Data
+        run: |
+          echo "GITHUB_SHA = $GITHUB_SHA"
+          echo "GITHUB_REPOSITORY = $GITHUB_REPOSITORY"
+          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+          echo "${{ github.client_payload.environment }}"
       - name: Checkout
         uses: actions/checkout@v2
       - name: List Files After Checkout
