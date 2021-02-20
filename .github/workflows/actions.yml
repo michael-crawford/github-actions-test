@@ -26,9 +26,9 @@ jobs:
           echo "GITHUB_REPOSITORY = $GITHUB_REPOSITORY"
           echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
           echo "${{ github.token }}"
-      - name: Show Client Data
+      - name: Show Client Payload
         run: |
-          echo "Client Payload = ${{ github.client_payload.environment }}"
+          echo "Client Payload = ${{ github.event.client_payload.environment }}"
       - name: Checkout
         uses: actions/checkout@v2
       - name: List Files After Checkout
