@@ -18,9 +18,9 @@ jobs:
         run: |
           curl -X POST http://localhost:3001/api/user \
                -H 'Content-Type: application/json' \
-               -d '{\"username\": \"mcrawford\",\"address\": \"619 1/2 W Carrillo St\"}'
+               -d '{"username": "mcrawford", "address": "619 1/2 W Carrillo St"}'
           curl -X POST http://localhost:3001/api/user \
                -H 'Content-Type: application/json' \
-               -d '{\"username\": \"rrobbins\",\"address\": \"740 Cieneguitas Rd\"}'
+               -d '{"username": "rrobbins", "address": "740 Cieneguitas Rd"}'
       - name: Get Users
         run: curl http://localhost:3001/api/users
