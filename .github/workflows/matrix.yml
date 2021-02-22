@@ -7,6 +7,15 @@ jobs:
       matrix:
         os: [macos-latest,ubuntu-latest,windows-latest]
         node_version: [8,10,12,14]
+        include:
+          - os: ubuntu-latest
+            node_version: 10
+            is_ubuntu_10: "true"
+        exclude:
+          - os: ubuntu-latest
+            node_version: 8
+          - os: macos-latest
+            node_version: 12
       #fail-fast: true
       #max-parallel: 2
     runs-on: ${{ matrix.os }}
@@ -18,4 +27,7 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Log modified node version
-        run: node -v
+        run: |
+          node -v
+          echo "Is this Ubuntu and Node v10? ${{ matrix.is_ubuntu_10 }}"
+
